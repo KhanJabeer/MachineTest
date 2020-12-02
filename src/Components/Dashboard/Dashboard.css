@@ -1,0 +1,25 @@
+.dash_content{
+    width: 520px;
+    /* min-height: 600px; */
+    background: whitesmoke;
+    text-align: center;
+    margin: 128px auto;
+    border-radius: 10px;
+    padding-bottom: 32px;
+}
+
+.userstatus_header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: grey;
+    border-radius: 2px;
+    padding: 10px;
+    font-weight: bold;
+}
+.user_status{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 25px 5px 15px 5px;
+}
