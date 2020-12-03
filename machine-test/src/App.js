@@ -5,21 +5,21 @@ import Dashboard from './Components/Dashboard/Dashboard'
 import UserManage from './Components/UserManage/UserManage'
 import UserManageModal from './Components/UsermanageModal/UsermanageModal'
 import UserdeleteModal from './Components/UsermanageModal/UserdeleteModal'
-
-
-
 import "./index.css";
 import "./App.css";
+import Home from "./Components/Home/Home";
 
 
 const App = () => {
 
   return(
     <div className="App">
-      <header><h1>Machine Test</h1></header>
+      
 
-<Login />
+
    <Router> 
+   <Route path="/home" component={Home} />
+   <Route path="/login" component={Login} />
    <Route path="/usermanage" component={UserManage} />
    <Route path="/dashboard" component={Dashboard} />
   </Router> 

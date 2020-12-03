@@ -1,7 +1,7 @@
 import React from "react";
 import './Dashboard.css'
 import {BrowserRouter as Router,Route,Switch} from "react-router-dom";
-
+import avatar from '../../images/avatar.png'
 
 
 const Dashboard = () => {
@@ -10,8 +10,18 @@ const Dashboard = () => {
 
   return(
     <div>
+
+      
        <header>
-           <h1>Welcome To Dashboard</h1>
+           <div className="dash_title">
+             <div>Welcome To Dashboard</div>
+
+           <div className="logout_btn" >
+             <div className="logged_user">user Name</div>
+              <button>Log out</button>
+           </div>
+
+           </div>
         </header>
 
            <div className="dash_content">

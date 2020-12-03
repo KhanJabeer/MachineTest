@@ -14,6 +14,7 @@ const handleSubmit =(e)=>{
   return(
     <div className="login_content">
         <header>
+      <h1>Machine Test</h1>
           <h1>Login</h1>
         </header>
 
