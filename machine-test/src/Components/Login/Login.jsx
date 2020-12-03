@@ -10,7 +10,7 @@ const handleSubmit =(e)=>{
     e.preventDefault()
   
     const validUser = users && users.findIndex(user => user.email === loginData.email && user.password === loginData.password)
-    console.log("asdfkasdhf",validUser)
+    console.log("validUserCheck",validUser)
     if(validUser !== -1) {
       localStorage.setItem("loggedInUser",JSON.stringify(users[validUser]))
       changeAuth()
@@ -42,7 +42,7 @@ const handleChange = (e) => {
                 type="email" 
                 name="email" 
                 value={email}
-                placeholder="User name" 
+                placeholder="Email" 
                 onChange={(e) => handleChange(e)}
                 required />
             </div>

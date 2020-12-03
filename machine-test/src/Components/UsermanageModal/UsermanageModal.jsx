@@ -71,33 +71,33 @@ const UserManageModal = ({ add,users,userId,onClose }) => {
   return(
     <div className="modal">
      <div className="modal_title">{ add ? "ADD USER" : "EDIT USER" }</div>
-
+     <div className="divider"/>
      <form onSubmit={(e) => handleSubmit(e)}>
 
      <div className="grid-container">
 
      <div className="grid-item">
-         <div>Name</div>
+         <div className="field_label">Name</div>
          <input className="userdata_fields" type="text" name="name" value={name} onChange={(e) => handleChange(e)} required />
      </div>
 
      <div className="grid-item">
-         <div>Email</div>
+         <div className="field_label">Email</div>
          <input className="userdata_fields" type="email" name="email" value={email} onChange={(e) => handleChange(e)} required />
      </div>
 
      <div className="grid-item">
-         <div>Address</div>
+         <div className="field_label">Address</div>
          <input className="userdata_fields" type="text" name="address" value={address} onChange={(e) => handleChange(e)} required />
      </div>
 
      <div className="grid-item">
-         <div>Country</div>
+         <div className="field_label">Country</div>
          <input className="userdata_fields" type="text" name="country" value={country} onChange={(e) => handleChange(e)} required />
      </div>
 
      <div className="grid-item">
-         <div>Status</div>
+         <div className="field_label">Status</div>
          <select className="status_fields" name="status" value={status}  onChange={(e) => handleChange(e)} >
             <option value="active">Active</option>
             <option value="inactive">In-Active</option>
@@ -106,9 +106,8 @@ const UserManageModal = ({ add,users,userId,onClose }) => {
 
     </div>
   
-
     <div className="btn_wraps">
-        <button className="cancel_btn" onClick={() => resetForm()}>Cancel</button>    
+        <button className="cancel_btn" onClick={() => onClose()}>Cancel</button>    
         <button className="addedit_btn" type="submit" >{add ? "ADD" : "UPDATE"}</button>
     </div>
     </form>

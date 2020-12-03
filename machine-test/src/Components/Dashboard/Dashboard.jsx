@@ -1,7 +1,6 @@
 import React,{useEffect,useState} from "react";
 import './Dashboard.css'
 import {BrowserRouter as Router,Route,Switch,Link,Redirect} from "react-router-dom";
-import avatar from '../../images/avatar.png'
 
 
 const Dashboard = ({ loggedInUser,history }) => {
@@ -25,6 +24,7 @@ const loadUserDetails = () => {
 
   if(localStorage.loggedInUser) {
     const user = JSON.parse(localStorage.getItem("loggedInUser"))
+  
     setCurrId(user.userId)
   }
 }
@@ -43,9 +43,9 @@ const logout = () => {
            <div className="dash_title">
              <div>Welcome To Dashboard</div>
 
-             <div className="logout_btn" >
-              <Link to="/usermanage">User Management</Link>
-           </div>
+       {loggedInUser && loggedInUser.role !== "user" && <div>
+              <Link to="/usermanage" className="link_header">User Management</Link>
+           </div>}
 
            <div className="logout_btn" >
              <div className="logged_user">{loggedInUser && loggedInUser.name}</div>

@@ -1,13 +1,3 @@
-.userstatus_header{
-  
-}
-.dash_content{
-    width: 520px;
-    text-align: center;
-    margin: 128px auto;
-    border-radius: 10px;
-    padding-bottom: 32px;
-}
 .dash_title{
     font-weight: bold;
     padding: 10px 20px;
@@ -19,13 +9,32 @@
     align-items: center;
     justify-content: space-between;
 }
+.link_header{
+    color: black;
+}
+.logout_btn button{
+    border-radius: 2px;
+    border: none;
+    width: 70px;
+    height: 30px;
+    background-color: rgb(38, 128, 235);
+    font-size: 15px;
+    color: white;
+    cursor: pointer;
+}
 .logged_user{
     font-size: 14px;
     font-size: 14px;
     font-weight: 400;
 }
-.userstatus_header{
-   
+.dash_content{
+    width: 520px;
+    text-align: center;
+    margin: 128px auto;
+    border-radius: 10px;
+    padding-bottom: 32px;
+}
+.userstatus_header{  
     font-weight: bold;
     padding: 10px 20px;
     background-color: #F8F8F8;
@@ -41,14 +50,4 @@
     justify-content: space-around;
     align-items: center;
     margin: 25px 5px 15px 5px;
-}
-.logout_btn button{
-    border-radius: 2px;
-    border: none;
-    width: 70px;
-    height: 30px;
-    background-color: rgb(38, 128, 235);
-    font-size: 15px;
-    color: white;
-    cursor: pointer;
 }
