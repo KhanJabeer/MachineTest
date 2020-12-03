@@ -4,15 +4,20 @@ import {BrowserRouter as Router,Route,Switch,Link} from "react-router-dom";
 import { MdModeEdit, MdDelete } from "react-icons/md";
 import Users from "../../utils/Users";
 import UserManageModal from "../UsermanageModal/UsermanageModal";
+import UserdeleteManage from "../UsermanageModal/UserdeleteModal";
 
+import Modal from '@material-ui/core/Modal';
 
 const UserManage = () => {
 
  
   const [insertopen,setinsertopen] = useState(false)
+  const [editopen,seteditopen] = useState(false)
+
   const [opendelete,setopendelete] = useState(false)
   const [userDetails,setUserDetails] = useState([]);
 
+  const [open, setOpen] = useState(false);
   console.log("sadfgsdaf",Users)
 
   useEffect(() => {
@@ -29,6 +34,7 @@ const UserManage = () => {
 
   const modalOpen = ()=>{
     alert("modal")
+    setOpen(true);
     setinsertopen(true)
   }
 
@@ -36,6 +42,15 @@ const UserManage = () => {
     alert("Delete")
     setopendelete(true)
   }
+
+
+  const handleClose =()=>{
+    setOpen(false);
+    setinsertopen(false)
+    seteditopen(false)
+    setopendelete(false)
+}
+
 
   return(
     <div className="">
@@ -69,7 +84,32 @@ const UserManage = () => {
              
           </div>
         </div>
-        {insertopen && <UserManageModal />}
+        {
+        insertopen && 
+         <Modal 
+         open={open}
+         onClose={handleClose}
+         title={insertopen ? "Add User" : "Edit User"}
+         >
+
+        <UserManageModal   insertopen={insertopen} onClose={handleClose}/>
+
+        </Modal>
+        }
+
+      {
+        opendelete && 
+         <Modal 
+         open={deleteOpen}
+         onClose={handleClose}
+
+         >
+
+        <UserdeleteManage onClose={handleClose}/>
+
+        </Modal>
+        }
+
     </div>
   )
   }

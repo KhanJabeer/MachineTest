@@ -1,23 +1,22 @@
 .modal {
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    /* position: fixed; */
+   
+    overflow: auto;
+    position: fixed;
     z-index: 1;
-    padding-top: 100px;
-    left: 0;
-    top: 0;
+  
+    top: 100px;
+    right: 500px;
+    background-color: white;
+    padding: 10px;
   }
   .delete_modal {
-    width: 100%; 
-    height: 100%; 
-    overflow: auto; 
-    background-color: white;
-    padding-bottom: 10px;
+    overflow: auto;
+    position: fixed;
     z-index: 1;
-    /* padding-top: 10px; */
-    left: 0;
-    top: 0;
+    top: 150px;
+    right: 613px;
+    background-color: white;
+    padding: 10px;
   }
 .userdata_fields{
     height: 24px;
@@ -48,7 +47,7 @@
 .delmodal_title{
     text-align: left;
     font-size: 18px;
-    background-color: #F5F5F5;
+    margin: 10px;
 }
 .grid-container {
     display: grid;

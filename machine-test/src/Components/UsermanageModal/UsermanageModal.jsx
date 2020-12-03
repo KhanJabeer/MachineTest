@@ -5,7 +5,6 @@ import './UsermanageModal.css'
 
 const UserManageModal = () => {
 
-    
 
   return(
     <div className="modal">
