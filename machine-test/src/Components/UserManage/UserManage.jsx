@@ -94,7 +94,7 @@ const UserManage = () => {
                 <div className="users">
                 <div>{user.name}</div>
                 <div>
-                  <MdModeEdit  className="edit_icon" onClick={() => editModal(user.userId)}/>
+                {loggedInUser.role === "root" || loggedInUser.role === "admin" && <MdModeEdit  className="edit_icon" onClick={() => editModal(user.userId)}/>}
                   {loggedInUser.role === "root" && <MdDelete className="delete_icon" onClick={() => deleteOpen(user.userId)}/>}
                 </div>
                 </div>
