@@ -8,7 +8,7 @@ return(
     <Route 
     {...rest} 
     render={ (props) => !isAuthenticated && isAuthenticated !== null  ? 
-    (<Redirect to="/login" />) 
+    (<Redirect to="/" />) 
      :
     (
      <Component {...props} loggedInUser={loggedInUser} />
