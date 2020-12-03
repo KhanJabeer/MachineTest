@@ -32,7 +32,7 @@ const loadUserDetails = () => {
 
 const logout = () => {
   localStorage.setItem("loggedInUser","")
-  history.push("/login")
+  history.push("/")
 }
 
    
