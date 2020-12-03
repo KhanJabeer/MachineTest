@@ -10,6 +10,8 @@ const Dashboard = ({ loggedInUser,history }) => {
 
   const [userDetails,setUserDetails] = useState([])
 
+  const [currId,setCurrId] = useState(null)
+
   useEffect(() => {
     loadUserDetails()
 },[])
@@ -20,11 +22,16 @@ const loadUserDetails = () => {
     const user = JSON.parse(localStorage.getItem("users"))
     setUserDetails(user)
   }
+
+  if(localStorage.loggedInUser) {
+    const user = JSON.parse(localStorage.getItem("loggedInUser"))
+    setCurrId(user.userId)
+  }
 }
 
 
 const logout = () => {
-  localStorage.setItem("loggedInUser",JSON.stringify({}))
+  localStorage.setItem("loggedInUser","")
   history.push("/login")
 }
 
@@ -53,7 +60,7 @@ const logout = () => {
            <div className="userstatus_header">User List<span>Status</span></div>
             {userDetails && userDetails.length > 0 && userDetails.map((user) => {
               return(
-                user.role === "user" &&  <div className="user_status">{user.name}<span>{user.status}</span></div>
+                user.role === "user" && user.userId !== currId && <div className="user_status">{user.name}<span>{user.status}</span></div>
               )
             })}
            </div>

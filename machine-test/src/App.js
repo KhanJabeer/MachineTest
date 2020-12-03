@@ -18,14 +18,24 @@ const App = () => {
   const [loggedInUser,setLoggedInUser] = useState(null)
 
   useEffect(() => {
-      if(!localStorage.userDetails) {
+
+     if(!localStorage.loggedInUser) {
+       localStorage.setItem("loggedInUser","")
+     }
+     
+      if(!localStorage.users) {
         localStorage.setItem("users",JSON.stringify(Users))
+
+        const userDetails = JSON.parse(localStorage.getItem("users"))
+        setUsers(userDetails)
+      }else {
         const userDetails = JSON.parse(localStorage.getItem("users"))
         setUsers(userDetails)
       }
 
-    
-      if(Object.keys(localStorage.loggedInUser).length) {
+      console.log("sadfjashldfjsdf",localStorage.loggedInUser === "")
+
+      if(localStorage.loggedInUser === "") {
          setAuthenticated(false)
       }else {
         setAuthenticated(true)
@@ -43,7 +53,7 @@ const App = () => {
   return(
     <div className="App">
     <Router> 
-            <Route exact path="/login" render={(props) => <Login {...props} changeAuth={changeAuth} users={users} /> }/> 
+            <Route  path="/login" render={(props) => <Login {...props} changeAuth={changeAuth} users={users} /> }/>  
             <PrivateRoute path="/usermanage" component={UserManage} isAuthenticated={isAuthenticated} />
             <PrivateRoute path="/dashboard" component={Dashboard} isAuthenticated={isAuthenticated} loggedInUser={loggedInUser} />
     </Router> 
