@@ -1,10 +1,10 @@
 import React,{useEffect,useState} from "react";
 import './Dashboard.css'
-import {BrowserRouter as Router,Route,Switch,Link} from "react-router-dom";
+import {BrowserRouter as Router,Route,Switch,Link,Redirect} from "react-router-dom";
 import avatar from '../../images/avatar.png'
 
 
-const Dashboard = ({ loggedInUser }) => {
+const Dashboard = ({ loggedInUser,history }) => {
 
   console.log("sdakjfhsalkjdf",loggedInUser)
 
@@ -23,6 +23,11 @@ const loadUserDetails = () => {
 }
 
 
+const logout = () => {
+  localStorage.setItem("loggedInUser",JSON.stringify({}))
+  history.push("/login")
+}
+
    
 
   return(
@@ -37,7 +42,7 @@ const loadUserDetails = () => {
 
            <div className="logout_btn" >
              <div className="logged_user">{loggedInUser && loggedInUser.name}</div>
-              <button>Log out</button>
+              <button onClick={logout}>Log out</button>
            </div>
 
            </div>

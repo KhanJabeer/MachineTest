@@ -69,7 +69,7 @@ const UserManage = () => {
              
           </div>
         </div>
-        {insertopen && <UserManageModal />}
+        {insertopen && <UserManageModal visible={insertopen} />}
     </div>
   )
   }

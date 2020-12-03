@@ -24,7 +24,8 @@ const App = () => {
         setUsers(userDetails)
       }
 
-      if(!localStorage.loggedInUser) {
+    
+      if(Object.keys(localStorage.loggedInUser).length) {
          setAuthenticated(false)
       }else {
         setAuthenticated(true)
@@ -42,9 +43,9 @@ const App = () => {
   return(
     <div className="App">
     <Router> 
-          {!isAuthenticated && <Route exact path="/" render={(props) => <Login {...props} changeAuth={changeAuth} users={users} /> }/> }
-          <PrivateRoute exact path="/usermanage" component={UserManage} isAuthenticated={isAuthenticated} />
-          <PrivateRoute path="/dashboard" component={Dashboard} isAuthenticated={isAuthenticated} loggedInUser={loggedInUser} />
+            <Route exact path="/login" render={(props) => <Login {...props} changeAuth={changeAuth} users={users} /> }/> 
+            <PrivateRoute path="/usermanage" component={UserManage} isAuthenticated={isAuthenticated} />
+            <PrivateRoute path="/dashboard" component={Dashboard} isAuthenticated={isAuthenticated} loggedInUser={loggedInUser} />
     </Router> 
      </div>
   )
