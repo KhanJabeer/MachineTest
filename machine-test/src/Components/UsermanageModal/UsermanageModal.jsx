@@ -8,8 +8,8 @@ const UserManageModal = () => {
     
 
   return(
-    <div className="">
-     
+    <div className="modal">
+     <div className="modal_title">ADD USER</div>
      <div className="grid-container">
 
      <div className="grid-item">

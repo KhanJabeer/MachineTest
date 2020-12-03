@@ -43,7 +43,7 @@ const App = () => {
     <div className="App">
     <Router> 
           {!isAuthenticated && <Route exact path="/" render={(props) => <Login {...props} changeAuth={changeAuth} users={users} /> }/> }
-          <PrivateRoute exact path="/usermanage" component={UserManage} isAuthenticated={isAuthenticated} />
+          <PrivateRoute exact path="/usermanage" component={UserdeleteModal} isAuthenticated={isAuthenticated} />
           <PrivateRoute path="/dashboard" component={Dashboard} isAuthenticated={isAuthenticated} loggedInUser={loggedInUser} />
     </Router> 
      </div>
