@@ -5,7 +5,6 @@ import { MdModeEdit, MdDelete } from "react-icons/md";
 import Users from "../../utils/Users";
 import UserManageModal from "../UsermanageModal/UsermanageModal";
 import UserdeleteManage from "../UsermanageModal/UserdeleteModal";
-import Modal from '@material-ui/core/Modal';
 
 const UserManage = () => {
 
@@ -103,27 +102,28 @@ const UserManage = () => {
 
         {
         open && 
-         <Modal 
+         <div 
          open={open}
          onClose={handleClose}
          title={insertopen ? "Add User" : "Edit User"}
+         className={open == true ? "modal_open" : "modal_close" }
          >
            
         <UserManageModal  add={insertopen} onClose={handleClose} users={userDetails} userId={userId} />
 
-        </Modal>
+        </div>
         }
 
       {
         opendelete && 
-         <Modal 
+         <div 
          open={deleteOpen}
          onClose={handleClose}
-         >
+         className={opendelete == true ? "modal_open" : "modal_close" }         >
 
         <UserdeleteManage onClose={handleClose} users={userDetails}  userId={userId} loadUserDetails={loadUserDetails} />
 
-        </Modal>
+        </div>
         }
 
     </div>
