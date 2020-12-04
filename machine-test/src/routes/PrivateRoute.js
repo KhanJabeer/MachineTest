@@ -1,17 +1,23 @@
-import React from "react";
-import {Route,Redirect} from "react-router-dom";
+import React,{useState,useEffect} from "react";
+import {Route,Redirect,withRouter} from "react-router-dom";
 
 
-const PrivateRoute = ({ component:Component,isAuthenticated,loggedInUser, ...rest }) => {
+const PrivateRoute = ({ component:Component,isAuthenticated,loggedInUser,history,...rest }) => {
+
+  console.log("sdfjksdhfjsf",loggedInUser)
+    useEffect(() => {
+    loggedInUser && window.location.pathname === "/usermanage" && loggedInUser.role === "user" && history.push("/dashboard")
+    },[loggedInUser,history])
 
 return(
     <Route 
     {...rest} 
-    render={ (props) => !isAuthenticated && isAuthenticated !== null  ? 
+    render={ (props) => !isAuthenticated && isAuthenticated !== null ? 
     (<Redirect to="/" />) 
-     :
+     : 
     (
-     <Component {...props} loggedInUser={loggedInUser} />
+      
+      <Component {...props} loggedInUser={loggedInUser} />
     ) 
 
      }
@@ -24,4 +30,4 @@ return(
                
 
 
-export default PrivateRoute;
+export default withRouter(PrivateRoute);

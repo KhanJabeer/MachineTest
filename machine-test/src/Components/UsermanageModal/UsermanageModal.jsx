@@ -39,11 +39,17 @@ const UserManageModal = ({ add,users,userId,onClose }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if(add) {
+        const validUser =  users && users.find(user => user.email === email)
+        if(validUser) {
+            alert("User already exists")
+        }
+        if(add && !validUser) {
             users && users.push({userId:uuid(),name,email,address,country,status,role})
             localStorage.setItem("users",JSON.stringify(users))
             onClose();
-        }else {
+        }
+
+        if(!add && !validUser) {
             users[userIndex].name = name;
             users[userIndex].email = email;
             users[userIndex].address = address;
@@ -53,6 +59,7 @@ const UserManageModal = ({ add,users,userId,onClose }) => {
 
             localStorage.setItem("users",JSON.stringify(users))
             onClose()
+
         }
         console.log("asdfjsadhfjhads",users)
     }
