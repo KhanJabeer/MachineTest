@@ -6,7 +6,7 @@ const PrivateRoute = ({ component:Component,isAuthenticated,loggedInUser,history
 
   console.log("sdfjksdhfjsf",loggedInUser)
     useEffect(() => {
-    loggedInUser && window.location.pathname === "/usermanage" && loggedInUser.role === "user" && history.push("/dashboard")
+    loggedInUser && (window.location.pathname === "/usermanage" && "/post")  && loggedInUser.role === "user" && history.push("/dashboard" && "/post")
     },[loggedInUser,history])
 
 return(

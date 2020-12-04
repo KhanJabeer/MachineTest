@@ -73,8 +73,11 @@ const UserManage = () => {
     <div>
        <header>
          <div className="usermanage_title">
-         <div>User Management</div>
+         {/* <div>User Management</div> */}
          <Link to="/dashboard" className="link_header">DashBoard</Link>
+         <Link to="/post" className="link_header">Users List</Link>
+         {loggedInUser&& loggedInUser.role !== "user" && <Link to="/dashboard" className="link_header">User Management</Link>}
+        
          {loggedInUser && (loggedInUser.role === "root" ||  "admin") &&<div className="useradd_btn">
            <button onClick={addModal}>Add User</button>
          </div>}
@@ -83,13 +86,13 @@ const UserManage = () => {
      
         <div className="usermanage_content">
       
-  
+        <div className="usermanage_header">User List<span>Action</span></div>
             {userDetails && userDetails.length > 0 && userDetails.map((user) => {
               return(
               user.role === "user" && user.userId !== currId &&
                 <div className="users">
-                <div>{user.name}</div>
-                <div>
+                <div className="user_names">{user.name}</div>
+                <div className="action_icons">
                 {(loggedInUser.role === "root" ||  "admin") && <MdModeEdit  className="edit_icon" onClick={() => editModal(user.userId)}/>}
                   {loggedInUser.role === "root" && <MdDelete className="delete_icon" onClick={() => deleteOpen(user.userId)}/>}
                 </div>

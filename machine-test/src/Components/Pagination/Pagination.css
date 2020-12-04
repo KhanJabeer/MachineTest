@@ -1,0 +1,20 @@
+.pagination{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 10px;
+}
+.page_no{
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid black;
+    background: white;
+    text-decoration: none !important;
+    width: 20px;
+    height: 26px;
+    cursor: pointer;
+}
+.pageno_link{
+    text-decoration: none;
+    color: black !important;
+}

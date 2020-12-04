@@ -1,6 +1,7 @@
 import React,{useEffect,useState} from "react";
 import './Dashboard.css'
 import {BrowserRouter as Router,Route,Switch,Link,Redirect} from "react-router-dom";
+import Pagination from '../Pagination/Pagination';
 
 
 const Dashboard = ({ loggedInUser,history }) => {
@@ -10,6 +11,8 @@ const Dashboard = ({ loggedInUser,history }) => {
   const [userDetails,setUserDetails] = useState([])
 
   const [currId,setCurrId] = useState(null)
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(5);
 
   useEffect(() => {
     loadUserDetails()
@@ -35,18 +38,30 @@ const logout = () => {
   history.push("/")
 }
 
-   
+  // Get current posts
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = userDetails && userDetails.slice(indexOfFirstPost, indexOfLastPost);
+console.log(currentPage,postsPerPage)
+  // Change page
+  const dashPage = dashPage => setCurrentPage(dashPage);
+ 
 
   return(
     <div>      
        <header>
            <div className="dash_title">
-             <div>Welcome To Dashboard</div>
-
+           <div>
+           <Link to="/dashboard" className="link_header">Dashboard</Link>
+           </div>
+             <div>
+           <Link to="/post" className="link_header">Users List</Link>
+           </div>
        {loggedInUser && loggedInUser.role !== "user" && <div>
               <Link to="/usermanage" className="link_header">User Management</Link>
            </div>}
-
+         
+         
            <div className="logout_btn" >
              <div className="logged_user">{loggedInUser && loggedInUser.name}</div>
               <button onClick={logout}>Log out</button>
@@ -58,12 +73,19 @@ const logout = () => {
            <div className="dash_content">
 
            <div className="userstatus_header">User List<span>Status</span></div>
-            {userDetails && userDetails.length > 0 && userDetails.map((user) => {
+            {currentPosts && currentPosts.length > 0 && currentPosts.map((user) => {
               return(
                 user.role === "user" && user.userId !== currId && <div className="user_status">{user.name}<span>{user.status}</span></div>
               )
             })}
            </div>
+
+           <Pagination
+        postsPerPage={postsPerPage}
+        totalPosts={userDetails && userDetails.length}
+        paginate={dashPage}
+      />
+
     </div>
   )
   }
