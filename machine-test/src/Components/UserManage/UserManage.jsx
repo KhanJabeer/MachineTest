@@ -5,7 +5,6 @@ import { MdModeEdit, MdDelete } from "react-icons/md";
 import Users from "../../utils/Users";
 import UserManageModal from "../UsermanageModal/UsermanageModal";
 import UserdeleteManage from "../UsermanageModal/UserdeleteModal";
-
 import Modal from '@material-ui/core/Modal';
 
 const UserManage = () => {
@@ -72,36 +71,34 @@ const UserManage = () => {
 
 
   return(
-    <div className="">
+    <div>
        <header>
-         <h1>User Management</h1>
+         <div className="usermanage_title">
+         <div>User Management</div>
+         <Link to="/dashboard" className="link_header">DashBoard</Link>
+         {loggedInUser && (loggedInUser.role === "root" ||  "admin") &&<div className="useradd_btn">
+           <button onClick={addModal}>Add User</button>
+         </div>}
+         </div>
         </header>
-
+     
         <div className="usermanage_content">
-
-        <div className="logout_btn" >
-              <Link to="/dashboard">DashBoard</Link>
-           </div>
-
-        <div className="users_header">
-          <div>User List</div>
-        <div className="useradd_btn"><button onClick={addModal}>Add User</button></div>
-</div>
-    <div className="users_wrap">
+      
+  
             {userDetails && userDetails.length > 0 && userDetails.map((user) => {
               return(
               user.role === "user" && user.userId !== currId &&
                 <div className="users">
                 <div>{user.name}</div>
                 <div>
-                  <MdModeEdit  className="edit_icon" onClick={() => editModal(user.userId)}/>
+                {(loggedInUser.role === "root" ||  "admin") && <MdModeEdit  className="edit_icon" onClick={() => editModal(user.userId)}/>}
                   {loggedInUser.role === "root" && <MdDelete className="delete_icon" onClick={() => deleteOpen(user.userId)}/>}
                 </div>
                 </div>
               )
             })}
              
-          </div>
+         
         </div>
 
         {
@@ -111,6 +108,7 @@ const UserManage = () => {
          onClose={handleClose}
          title={insertopen ? "Add User" : "Edit User"}
          >
+           
         <UserManageModal  add={insertopen} onClose={handleClose} users={userDetails} userId={userId} />
 
         </Modal>
@@ -121,7 +119,6 @@ const UserManage = () => {
          <Modal 
          open={deleteOpen}
          onClose={handleClose}
-
          >
 
         <UserdeleteManage onClose={handleClose} users={userDetails}  userId={userId} loadUserDetails={loadUserDetails} />
