@@ -15,13 +15,30 @@ const Dashboard = ({ loggedInUser,history }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(5);
   const [paginationIndex,updatePaginationIndex] =useState(0);
-  const [entersearch,setSearch] =useState(null);
+  const [entersearch,setSearch] =useState("");
   
-
   useEffect(() => {
     loadUserDetails()
 },[])
 
+
+// Search users
+useEffect(() => {
+  const results = !entersearch || entersearch.trim() === "" ? JSON.parse(localStorage.getItem("users")) : userDetails && userDetails.filter((data) => {
+    console.log(data, "Search_data")
+     if (data.name !== null && data.name.toLowerCase().includes(entersearch.toLowerCase())
+      || (data.status != null && data.status.toLowerCase().includes(entersearch.toLowerCase()))
+      || (data.country != null && data.country.toLowerCase().includes(entersearch.toLowerCase()))
+    ) {
+      return data
+    }
+   
+  })
+
+  console.log("sdfsdfs",results)
+  
+  setUserDetails(results)
+},[entersearch])
 
 const loadUserDetails = () => {
   if(localStorage.users) {
@@ -37,24 +54,10 @@ const loadUserDetails = () => {
 }
 
 const searchUser = (e) => {
-  setSearch(e.target.value)
-  console.log(entersearch,"entersearch")
- 
+   setSearch(e.target.value)
 }
 
-const searching = userDetails && userDetails.filter((data) => {
-  console.log(data, "Search_data")
-  if (entersearch === null)
-    return data
-  else if (data.name !== null && data.name.toLowerCase().includes(entersearch.toLowerCase())
-    || (data.status != null && data.status.toLowerCase().includes(entersearch.toString()))
-    || (data.country != null && data.country.toLowerCase().includes(entersearch.toString()))
-   
-  ) {
-    return data
-  }
-  console.log(entersearch, "Search_data")
-})
+
 
 const logout = () => {
   localStorage.setItem("loggedInUser","")
@@ -123,7 +126,7 @@ console.log(history,"historyDash")
           <div>
             <div>Search User</div>
           <input className="userdata_fields" 
-          type="search"  value={entersearch}  onChange={(e)=>searchUser(e)}/>
+          type="search" name="search"  value={entersearch}  onChange={(e)=>searchUser(e)}/>
           </div>
 
            <div className="userstatus_header">
