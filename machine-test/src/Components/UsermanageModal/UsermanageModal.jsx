@@ -57,13 +57,25 @@ const UserManageModal = ({ add,users,userId,onClose }) => {
             const {name,email,address,country,status,role} = findUser;
             setUserData({
                 "name":{
-                    value:name
+                    value:name,
+                    validation: [{ 'name': 'required' }],
+                    error: null,
+                    errmsg: null
                 },"email":{
-                    value:email
+                    value:email,
+                    validation: [{ 'name': 'required' }],
+                    error: null,
+                    errmsg: null
                 },"address":{
-                    value:address
+                    value:address,
+                    validation: [{ 'name': 'required' }],
+                    error: null,
+                    errmsg: null
                 },"country":{
-                    value:country
+                    value:country,
+                    validation: [{ 'name': 'required' }],
+                    error: null,
+                    errmsg: null
                 }
             })
 
@@ -91,11 +103,13 @@ const UserManageModal = ({ add,users,userId,onClose }) => {
           userDataValues[targetkeys[i]].errmsg = errorcheck.msg;
         }
         var filtererr = targetkeys.filter((obj) => userDataValues[obj].error == true);
-        console.log(filtererr.length);
+        console.log(filtererr,"sadfkjshadfljadfs");
         if (filtererr.length > 0) {
+        
           setUserData({...userDataValues})
         } 
         if (filtererr.length === 0) {
+         
              submitUser()
         } 
     }
