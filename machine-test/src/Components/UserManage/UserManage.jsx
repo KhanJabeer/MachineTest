@@ -6,9 +6,11 @@ import Users from "../../utils/Users";
 import UserManageModal from "../UsermanageModal/UsermanageModal";
 import UserdeleteManage from "../UsermanageModal/UserdeleteModal";
 import Pagination,{PaginationHelper} from '../Pagination/Pagination';
+import Logout from '../Logout'
 
 
-const UserManage = () => {
+
+const UserManage = ({history}) => {
 
  
   const [insertopen,setinsertopen] = useState(false)
@@ -103,24 +105,26 @@ const UserManage = () => {
 
   }
 
+  
   return(
     <div>
-       <header className="usermanage_heads">
-         <div className="usermanage_title">
+       {/* <header className="usermanage_heads"> */}
+         {/* <div className="usermanage_title">
         
          <Link to="/dashboard" className="link_header">DashBoard</Link>
          {loggedInUser&& loggedInUser.role !== "user" && <Link to="/usermanage" className="link_header">User Management</Link>}
          <Link to="/todolist" className="link_header">Todo List</Link>
-        </div>
-        
+        </div> */}
+        <Logout history={history} loggedInUser={loggedInUser}/>
 
+
+      
+        {/* </header> */}
         <div>
          {loggedInUser && (loggedInUser.role === "root" ||  "admin") &&<div className="useradd_btn">
            <button onClick={addModal}>Add User</button>
          </div>}
          </div>
-        </header>
-     
         <div className="usermanage_content">
       
         <div className="usermanage_header">User List<span>Action</span></div>

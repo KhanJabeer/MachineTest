@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import  './TodoList.css';
 import Pagination,{PaginationHelper} from '../Pagination/Pagination';
 import {BrowserRouter as Router,Route,Switch,Link} from "react-router-dom";
+import Logout from '../Logout'
 
 
-const TodoList = () => {
+const TodoList = ({history}) => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
@@ -73,15 +74,19 @@ const TodoList = () => {
     }
   }
 
+  console.log("dskjfbsjdbf",currentPosts)
   return (
     <div className='container mt-5'>
       
-        <div className="post_title">
+        {/* <div className="post_title">
         <Link to="/dashboard" className="link_header">DashBoard</Link>  
         {loggedInUser && loggedInUser.role !== "user" &&<Link to="/usermanage" className="link_header">User Management</Link>}
         <Link to="/todolist" className="link_header">Todo List</Link>
-        </div>
-      
+        
+       
+
+        </div> */}
+        <Logout history={history} loggedInUser={loggedInUser}/>
         <table className="table_style">
    
             <tr>
@@ -95,7 +100,7 @@ const TodoList = () => {
            <tr>
             
                 <td>{currentPosts.title}</td>
-                <td>{currentPosts.completed}</td>
+                <td>{currentPosts.completed === true ? "Completed" : "Pending" }</td>
                
             
             </tr>

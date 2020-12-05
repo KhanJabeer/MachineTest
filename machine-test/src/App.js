@@ -14,6 +14,8 @@ const App = () => {
   const [isAuthenticated,setAuthenticated] = useState(null)
   const [users,setUsers] = useState([])
   const [loggedInUser,setLoggedInUser] = useState(null)
+  const [activeBox,setActiveBox] = useState([])
+  const [currentLocation,setCurrentLocation] = useState(null)
 
   useEffect(() => {
 
@@ -40,6 +42,9 @@ const App = () => {
         const loggedUser = JSON.parse(localStorage.getItem("loggedInUser"))
         setLoggedInUser(loggedUser)
       }
+      
+      setCurrentLocation(window.location.href)
+      
   },[])
 
   const changeAuth = () => {
@@ -58,7 +63,7 @@ const App = () => {
            <Route exact  path="/" render={(props) => <Login {...props} changeAuth={changeAuth} users={users} /> }/> 
            <PrivateRoute path="/todolist"  component={TodoList} isAuthenticated={isAuthenticated} />
            <PrivateRoute path="/usermanage"  component={UserManage} isAuthenticated={isAuthenticated} />
-           <PrivateRoute path="/dashboard" component={Dashboard} isAuthenticated={isAuthenticated} loggedInUser={loggedInUser} />
+           <PrivateRoute path="/dashboard" component={Dashboard} isAuthenticated={isAuthenticated} loggedInUser={loggedInUser}/>
 
     </Router> 
      </div>
