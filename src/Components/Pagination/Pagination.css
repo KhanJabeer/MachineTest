@@ -1,0 +1,39 @@
+.pagination{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 10px;
+}
+.page_no{
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid black;
+    background: white;
+    text-decoration: none;
+    width: 20px;
+    height: 26px;
+    cursor: pointer;
+    outline: -webkit-focus-ring-color auto 1px;
+}
+.pageno_link{
+    text-decoration: none;
+    color: black ;
+}
+.active{
+    background: blue;
+  
+}
+ .active > .pageno_link  {
+color:white;
+}
+.page_icon{
+    font-size: 20px;
+    margin: 4px;
+    cursor: pointer;
+
+}
+.page_text{
+    font-size: 14px;
+    margin: 4px;
+    cursor: pointer;
+}
