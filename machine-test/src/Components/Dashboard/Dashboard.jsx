@@ -57,23 +57,7 @@ const searchUser = (e) => {
    setSearch(e.target.value)
 }
 
-<<<<<<< HEAD
-const searching = userDetails && userDetails.filter((data) => {
-  console.log(data, "Search_data")
-  if (entersearch === null)
-    return data
-  else if (data.name !== null && data.name.toLowerCase().includes(entersearch.toLowerCase())
-    || (data.status != null && data.status.toLowerCase().includes(entersearch.toString()))
-    || (data.country != null && data.country.toLowerCase().includes(entersearch.toString()))
-   
-  ) {
-    return data
-  }
 
-})
-=======
-
->>>>>>> 66e67aa2b519c3f81178cd1483a48b00479cfa96
 
 const logout = () => {
   localStorage.setItem("loggedInUser","")
@@ -114,43 +98,20 @@ const logout = () => {
 console.log(history,"historyDash")
   return(
     <div>      
-       {/* <header className="dash_heads"> */}
-           {/* <div className="dash_title">
-           <div>
-           <Link to="/dashboard" className="link_header">Dashboard</Link>
-           </div>
-           
-          {loggedInUser && loggedInUser.role !== "user" && <div>
-              <Link to="/usermanage" className="link_header">User Management</Link>
-           </div>}
-           <div>
-           <Link to="/todolist" className="link_header">Todo List</Link>
-           </div>
-           </div> */}
-           <div>
-           {/* <div className="logout_btn" >
-             <div className="logged_user">{loggedInUser && loggedInUser.name}</div>
-              <button onClick={logout}>Log out</button>
-           </div> */}
+     
            <Logout history={history} loggedInUser={loggedInUser}/>
-           </div>
-        {/* </header> */}
+          
+    
 
      
            <div className="dash_content">
 
-<<<<<<< HEAD
           <div className="search_wrap">
             <div className="search_label">Search User</div>
           <input className="search_field" 
           type="search"  value={entersearch}  onChange={(e)=>searchUser(e)}/>
-=======
-          <div>
-            <div>Search User</div>
-          <input className="userdata_fields" 
-          type="search" name="search"  value={entersearch}  onChange={(e)=>searchUser(e)}/>
->>>>>>> 66e67aa2b519c3f81178cd1483a48b00479cfa96
           </div>
+         
 
            <div className="userstatus_header">
              <div>User List</div>

@@ -29,10 +29,11 @@
 }
 .logged_user{
     font-size: 14px;
-    font-weight: 400;
+    font-weight: 500;
     display: flex;
     flex-direction: column;
     margin: 5px 0px 5px;
+    align-items: center;
 }
 .logout_btn{
     border-radius: 2px;

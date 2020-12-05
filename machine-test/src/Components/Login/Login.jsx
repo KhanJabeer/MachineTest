@@ -5,6 +5,7 @@ import {BrowserRouter as Router,Route,Switch} from "react-router-dom";
 
 
 const Login = ({ users,changeAuth,history }) => {
+  
 
 const handleSubmit =(e)=>{
     e.preventDefault()
@@ -17,6 +18,7 @@ const handleSubmit =(e)=>{
       history.push("/dashboard")
     }else {
       alert("Invalid email or password")
+    
     }
 }   
 
@@ -26,6 +28,7 @@ const {email,password} = loginData;
 
 const handleChange = (e) => {
   setLoginData({...loginData,[e.target.name]:e.target.value})
+ 
 }
 
   return(
@@ -46,6 +49,7 @@ const handleChange = (e) => {
                 onChange={(e) => handleChange(e)}
                 required />
             </div>
+ 
 
             <div className="login_fields">
                 <input 
@@ -57,7 +61,7 @@ const handleChange = (e) => {
                 onChange={(e) => handleChange(e)}
                 required/>
             </div>
-
+           
             <div className="login_btn">
             <button onClick={handleSubmit}>Login</button>
             </div>
