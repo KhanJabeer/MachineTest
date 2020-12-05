@@ -53,7 +53,7 @@ const searching = userDetails && userDetails.filter((data) => {
   ) {
     return data
   }
-  console.log(entersearch, "Search_data")
+
 })
 
 const logout = () => {
@@ -120,9 +120,9 @@ console.log(history,"historyDash")
      
            <div className="dash_content">
 
-          <div>
-            <div>Search User</div>
-          <input className="userdata_fields" 
+          <div className="search_wrap">
+            <div className="search_label">Search User</div>
+          <input className="search_field" 
           type="search"  value={entersearch}  onChange={(e)=>searchUser(e)}/>
           </div>
 
