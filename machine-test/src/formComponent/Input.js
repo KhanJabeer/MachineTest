@@ -11,7 +11,8 @@ const Input = ({label,required,value,placeholder,changeData,errmsg,type,classNam
             </div>
 
             <div>
-            <input className={className && className} type={type && type} value={value && value} placeholder={placeholder && placeholder} onChange={(e) => changeData && changeData(e.target.value) } />
+            <input className={className && className} type={type && type} value={value && value} 
+            placeholder={placeholder && placeholder} onChange={(e) => changeData && changeData(e.target.value) } />
             <div>
                 {errmsg && errmsg}
             </div>

@@ -5,7 +5,7 @@ import { MdModeEdit, MdDelete } from "react-icons/md";
 import Users from "../../utils/Users";
 import UserManageModal from "../UsermanageModal/UsermanageModal";
 import UserdeleteManage from "../UsermanageModal/UserdeleteModal";
-import Pagination from '../Pagination/Pagination';
+import Pagination,{PaginationHelper} from '../Pagination/Pagination';
 
 
 const UserManage = () => {
@@ -79,8 +79,29 @@ const UserManage = () => {
   (indexOfFirstPost, indexOfLastPost);
 
   // Change page
-  const managePage = managePage => setCurrentPage(managePage);
+  // const managePage = managePage => setCurrentPage(managePage);
 
+  const setpaginate = (pageNumber,click_data) => {
+
+    var gethelperData=PaginationHelper.checkingPaginationProcess(pageNumber,click_data,null,userDetails,postsPerPage,currentPage);
+    if(gethelperData.pageNumber){
+      setCurrentPage(gethelperData.pageNumber);
+    }
+    if(gethelperData.totalmovedpage>=0){
+      updatePaginationIndex(gethelperData.totalmovedpage);
+    }
+
+  }
+
+  const updatePaginationData=(data,totalnumbers)=>{
+
+    updatePaginationIndex(data);
+    var gethelperData=PaginationHelper.checkingPaginationProcess((data*5)+1,null,totalnumbers,userDetails,postsPerPage,currentPage);
+    if(gethelperData.pageNumber){
+      setCurrentPage(gethelperData.pageNumber);
+    }
+
+  }
 
   return(
     <div>
@@ -148,10 +169,10 @@ const UserManage = () => {
             <Pagination
             postsPerPage={postsPerPage}
             totalPosts={userDetails && userDetails.length}
-            paginate={managePage}
             paginationIndex={paginationIndex}
-            updatePaginationIndex={(data)=>updatePaginationIndex(data)}
             udpatePageNumber={(i)=>setCurrentPage(i)}
+            paginate={(data)=>setpaginate(data,'click')}
+            updatePaginationIndex={(data,totalnumbers)=>updatePaginationData(data,totalnumbers)}
             pageNo={currentPage && currentPage}
             />
 
