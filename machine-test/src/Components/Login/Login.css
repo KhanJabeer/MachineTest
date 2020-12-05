@@ -1,6 +1,7 @@
 .login_content{
     margin-top: 50px;
     padding: 8px;
+    min-height: 300px;
 }
 .login_fields{
     margin: 10px;

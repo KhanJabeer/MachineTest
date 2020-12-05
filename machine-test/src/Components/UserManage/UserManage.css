@@ -14,8 +14,10 @@
     justify-content: space-between;
     align-items: center;
 }
-.link_header{
-    color: black;
+.useradd_btn{
+    text-align: end;
+    margin: 5px;
+    padding-bottom: 5px;
 }
 .useradd_btn button{
     border-radius: 2px;
@@ -27,6 +29,7 @@
     color: white;
     outline: none;
     cursor: pointer;
+   
 }
 .usermanage_content{
     width: 520px;
@@ -34,6 +37,7 @@
     margin: 128px auto;
     border-radius: 10px;
     padding-bottom: 32px;
+    min-height: 300px;
 }
 .usermanage_header{  
     font-weight: bold;

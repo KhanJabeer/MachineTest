@@ -19,29 +19,31 @@ const logout = () => {
 }
 
 return (
-<div className="logout_btn" >
+<div className="logout" >
 
 <div className="dash_title">
-           <div>
+           <div className="header_links">
            <Link to="/dashboard" 
            className={`${currentLocation !== null && currentLocation.includes("/dashboard") ? "active_text_heading" :"link_header"}`}>
            Dashboard</Link>
            </div>
            
-          {loggedInUser && loggedInUser.role !== "user" && <div>
-              <Link to="/usermanage" 
-             className={`${currentLocation !== null ? currentLocation.includes("/usermanage") && "active_text_heading" : "link_header" }`}>
+          {loggedInUser && loggedInUser.role !== "user" && 
+           <div className="header_links">
+           <Link to="/usermanage" 
+             className={`${currentLocation !== null && currentLocation.includes("/usermanage") ? "active_text_heading" : "link_header" }`}>
              User Management </Link>
            </div>}
-           <div>
+           <div className="header_links">
            <Link to="/todolist" 
-           className={`${currentLocation !== null ? currentLocation.includes("/todolist") && "active_text_heading" :"link_header"}`}>
+           className={`${currentLocation !== null && currentLocation.includes("/todolist") ? "active_text_heading" :"link_header"}`}>
                Todo List</Link>
            </div>
            </div>
 
-<div className="logged_user">{loggedInUser && loggedInUser.name}</div>
- <button onClick={logout}>Log out</button>
+<div className="logged_user">{loggedInUser && loggedInUser.name}
+ <button className="logout_btn" onClick={logout}>Log out</button>
+ </div>
 </div>
 )
 }

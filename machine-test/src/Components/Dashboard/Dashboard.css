@@ -15,9 +15,7 @@
     align-items: center;
     justify-content: space-between;
 }
-.link_header{
-    color: black;
-}
+
 .search_wrap{
     display: flex;
     justify-content: flex-end;
@@ -47,17 +45,14 @@
     color: white;
     cursor: pointer;
 }
-.logged_user{
-    font-size: 14px;
-    font-size: 14px;
-    font-weight: 400;
-}
+
 .dash_content{
     width: 520px;
     text-align: center;
     margin: 128px auto;
     border-radius: 10px;
     padding-bottom: 32px;
+    min-height: 300px;
 }
 .userstatus_header{  
     font-weight: bold;

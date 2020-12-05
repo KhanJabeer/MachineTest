@@ -121,12 +121,12 @@ const UserManage = ({history}) => {
       
         {/* </header> */}
         <div>
-         {loggedInUser && (loggedInUser.role === "root" ||  "admin") &&<div className="useradd_btn">
-           <button onClick={addModal}>Add User</button>
-         </div>}
+        
          </div>
         <div className="usermanage_content">
-      
+        {loggedInUser && (loggedInUser.role === "root" ||  "admin") &&<div className="useradd_btn">
+           <button onClick={addModal}>Add User</button>
+         </div>}
         <div className="usermanage_header">User List<span>Action</span></div>
             {currentPosts && currentPosts.length > 0 && currentPosts.map((user) => {
               return(

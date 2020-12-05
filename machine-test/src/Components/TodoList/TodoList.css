@@ -8,15 +8,23 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
+  
 }
-.link_header{
-  color: black;
+.todolist_content{
+  width: 620px;
+  text-align: center;
+  margin: 128px auto;
+  border-radius: 10px;
+  padding-bottom: 32px;
+  min-height: 300px;
 }
 .table_style{
   width: 100%;
   text-align: center;
   border-collapse: collapse;
-  margin-top: 20px;
+  margin-top: 70px;
+  margin-bottom: 50px;
+ 
 }
 .table_style td {
   border: 1px solid white;

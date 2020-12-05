@@ -9,7 +9,7 @@ const TodoList = ({history}) => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(10);
+  const [postsPerPage] = useState(5);
   const [hasError, setErrors] = useState(false);
   const [paginationIndex,updatePaginationIndex] =useState(0);
   const [userDetails,setUserDetails] = useState([]);
@@ -87,6 +87,7 @@ const TodoList = ({history}) => {
 
         </div> */}
         <Logout history={history} loggedInUser={loggedInUser}/>
+        <div className="todolist_content">
         <table className="table_style">
    
             <tr>
@@ -108,7 +109,7 @@ const TodoList = ({history}) => {
         
     </table>
 
-     
+    </div>
     
    
    
