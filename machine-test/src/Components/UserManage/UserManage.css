@@ -1,13 +1,18 @@
-.usermanage_title{
+.usermanage_heads{
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-weight: bold;
-    padding: 10px 20px;
+    padding: 10px 20px 10px 0px;
     background-color: #F8F8F8;
     box-shadow: 0px 3px 6px #00000029;
     border-radius: 5px 5px 0px 0px;
     height: 35px;
+}
+.usermanage_title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .link_header{
     color: black;
@@ -48,7 +53,7 @@
     margin: 5px 0px 5px 0px;
     border: 1px solid white;
 }
-.user_names, 
+.usermanage_names, 
 .action_icons{
     width: 50%;
 }

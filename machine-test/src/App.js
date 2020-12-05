@@ -3,7 +3,7 @@ import {BrowserRouter as Router,Route,Link} from "react-router-dom";
 import Login from './Components/Login/Login'
 import Dashboard from './Components/Dashboard/Dashboard'
 import UserManage from './Components/UserManage/UserManage'
-import PostMaster from './Components/TodoList/PostMaster'
+import TodoList from './Components/TodoList/TodoList'
 import "./index.css";
 import "./App.css";
 import Users from "./utils/Users";
@@ -54,10 +54,9 @@ const App = () => {
         
     <Router> 
 
-   
-
+      
            <Route exact  path="/" render={(props) => <Login {...props} changeAuth={changeAuth} users={users} /> }/> 
-           <PrivateRoute path="/post"  component={PostMaster} isAuthenticated={isAuthenticated} />
+           <PrivateRoute path="/todolist"  component={TodoList} isAuthenticated={isAuthenticated} />
            <PrivateRoute path="/usermanage"  component={UserManage} isAuthenticated={isAuthenticated} />
            <PrivateRoute path="/dashboard" component={Dashboard} isAuthenticated={isAuthenticated} loggedInUser={loggedInUser} />
 

@@ -18,7 +18,10 @@
   height: 40px;
 }
 
-
+.link_focused{
+  background-color: red;
+  color: white;
+}
 .link_header {
  float: left;
   text-align: center;
